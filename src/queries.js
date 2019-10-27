@@ -6,6 +6,12 @@ export const VISITED_ROUTES_QUERY = gql`
   }
 `
 
+export const ONLINE_QUERY = gql`
+  query {
+    isOnline @client
+  }
+`
+
 export const POSTS_QUERY = gql`
   query {
     posts {

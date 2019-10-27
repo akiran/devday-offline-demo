@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useQuery, useApolloClient } from "@apollo/react-hooks"
-import { VISITED_ROUTES_QUERY } from "./queries"
+import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "./queries"
 import { useLocation } from "react-router-dom"
 
 export default function Page(props) {
@@ -13,8 +13,9 @@ export default function Page(props) {
   const {
     data: { visitedRoutes }
   } = useQuery(VISITED_ROUTES_QUERY)
-
-  console.log(visitedRoutes, "vis")
+  const {
+    data: { isOnline }
+  } = useQuery(ONLINE_QUERY)
 
   useEffect(() => {
     if (data && !visitedRoutes.includes(location.pathname)) {
@@ -30,5 +31,16 @@ export default function Page(props) {
   if (error) {
     return <div>Error !!!</div>
   }
-  return <div>{props.children}</div>
+  if (!isOnline && !visitedRoutes.includes(location.pathname)) {
+    return <div>Page is not cached to display in offline mode</div>
+  }
+  return (
+    <div>
+      {props.children}
+      {isOnline ? "online" : "offline"}
+      <button onClick={() => client.writeData({ data: { isOnline: false } })}>
+        Toggle
+      </button>
+    </div>
+  )
 }

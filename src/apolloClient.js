@@ -12,7 +12,10 @@ const client = new ApolloClient({
 })
 
 cache.writeData({
-  data: { visitedRoutes: [] }
+  data: {
+    isOnline: true,
+    visitedRoutes: []
+  }
 })
 
 export default client

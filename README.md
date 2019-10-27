@@ -10,6 +10,7 @@ TODO
 
 - page query components
 - track routes after loading
-- prevent route transition
-- tracking offline status
-- queuing transactions
+
+* prevent route transition
+* tracking offline status
+* queuing transactions
