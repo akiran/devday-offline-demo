@@ -18,11 +18,9 @@ export default function Post(props) {
       params: { id }
     }
   } = props
-  const { loading, error, data } = useQuery(POST_QUERY, {
+  const { data } = useQuery(POST_QUERY, {
     variables: { id: parseInt(id) }
   })
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :( </p>
   return (
     <div>
       <h1>{data.post.title}</h1>

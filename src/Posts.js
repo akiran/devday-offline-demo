@@ -22,10 +22,8 @@ const newPostMutation = gql`
 `
 
 export default function Posts() {
-  const { loading, error, data } = useQuery(POSTS_QUERY)
+  const { data } = useQuery(POSTS_QUERY)
   const [addPost, res] = useMutation(newPostMutation)
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
   return (
     <div>
       {data.posts.map(post => (
