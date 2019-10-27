@@ -2,15 +2,7 @@ import React from "react"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
 import { Link } from "react-router-dom"
-
-const POSTS_QUERY = gql`
-  query {
-    posts {
-      id
-      title
-    }
-  }
-`
+import { POSTS_QUERY } from "./queries"
 
 const newPostMutation = gql`
   mutation {
