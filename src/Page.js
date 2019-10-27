@@ -14,6 +14,8 @@ export default function Page(props) {
     data: { visitedRoutes }
   } = useQuery(VISITED_ROUTES_QUERY)
 
+  console.log(visitedRoutes, "vis")
+
   useEffect(() => {
     if (data && !visitedRoutes.includes(location.pathname)) {
       client.writeData({

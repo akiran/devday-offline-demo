@@ -24,3 +24,17 @@ export const POST_QUERY = gql`
     }
   }
 `
+
+export const POST_PAGE_QUERY = gql`
+  query getPost($id: Int!) {
+    posts {
+      id
+      title
+    }
+    post(id: $id) {
+      id
+      title
+      description
+    }
+  }
+`
