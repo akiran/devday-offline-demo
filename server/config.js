@@ -1,1 +1,1 @@
-export const JWT_SECRET = "SUPER SECRET FOR JWT";
+export const JWT_SECRET = "SUPER SECRET FOR JWT"

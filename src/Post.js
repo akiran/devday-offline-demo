@@ -13,11 +13,16 @@ const POST_QUERY = gql`
 `
 
 export default function Post(props) {
+  const {
+    match: {
+      params: { id }
+    }
+  } = props
   const { loading, error, data } = useQuery(POST_QUERY, {
-    variables: { id: props.id }
+    variables: { id: parseInt(id) }
   })
   if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
+  if (error) return <p>Error :( </p>
   return (
     <div>
       <h1>{data.post.title}</h1>
