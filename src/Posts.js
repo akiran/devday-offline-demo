@@ -1,7 +1,7 @@
 import React from "react"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
-import Post from "./Post"
+import { Link } from "react-router-dom"
 
 const POSTS_QUERY = gql`
   query {
@@ -29,7 +29,9 @@ export default function Posts() {
   return (
     <div>
       {data.posts.map(post => (
-        <div key={post.id}>{post.title}</div>
+        <div key={post.id}>
+          <Link to={`/post/${post.id}`}>{post.title}</Link>
+        </div>
       ))}
       <button
         onClick={() =>
@@ -40,7 +42,6 @@ export default function Posts() {
       >
         Add new Post
       </button>
-      <Post id={1} />
     </div>
   )
 }
