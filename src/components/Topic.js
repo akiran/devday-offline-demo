@@ -53,10 +53,10 @@ export default function Topic(props) {
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="view">
-            <TopicView />
+            <TopicView id={props.id} />
           </TabPane>
           <TabPane tabId="edit">
-            <TopicEdit />
+            <TopicEdit id={props.id} />
           </TabPane>
         </TabContent>
       </Col>
