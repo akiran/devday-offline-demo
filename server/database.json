@@ -17,6 +17,13 @@
       "role": "USER"
     }
   ],
+  "topics": [
+    {
+      "id": "123",
+      "name": "React",
+      "markdown": "# React Basics \n React is all about building reusable components and composing them"
+    }
+  ],
   "posts": [
     {
       "id": 1,
@@ -59,6 +66,16 @@
     },
     {
       "id": 8,
+      "title": "New Post",
+      "author": 1
+    },
+    {
+      "id": 9,
+      "title": "New Post",
+      "author": 1
+    },
+    {
+      "id": 10,
       "title": "New Post",
       "author": 1
     }

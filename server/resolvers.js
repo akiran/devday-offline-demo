@@ -3,6 +3,8 @@ import {
   getPost,
   getUsers,
   getUser,
+  getTopics,
+  getTopic,
   getComments,
   createPost,
   publishPost,
@@ -10,41 +12,50 @@ import {
   signup,
   login,
   logout
-} from "./connectors";
-import pubsub from "./pubsub";
+} from "./connectors"
+import pubsub from "./pubsub"
+import showdown from "showdown"
+const htmlConverter = new showdown.Converter()
 
 const resolvers = {
   User: {
     fullName: (user, args, ctx) => {
-      return `${user.firstName} ${user.lastName}`;
+      return `${user.firstName} ${user.lastName}`
     }
   },
   Post: {
     author: (post, args, ctx) => {
-      return getUser(post.author);
+      return getUser(post.author)
     },
     comments: post => {
-      return getComments(post.id);
+      return getComments(post.id)
+    }
+  },
+  Topic: {
+    html: topic => {
+      return htmlConverter.makeHtml(topic.markdown)
     }
   },
   Comment: {
     author: (post, args, ctx) => {
-      return getUser(post.author);
+      return getUser(post.author)
     }
   },
   Query: {
     ping: () => true,
     me: (_, args, ctx) => {
       if (!ctx.user) {
-        throw new Error("Not logged in");
+        throw new Error("Not logged in")
       }
-      return getUser(ctx.user.id);
+      return getUser(ctx.user.id)
     },
     posts: () => getPosts(),
     post: (_, args) => getPost(args.id),
+    topics: () => getTopics(),
+    topic: (_, args) => getTopic(args.id),
     users: (_, args, ctx) => {
-      console.log("context", ctx.user);
-      return getUsers();
+      console.log("context", ctx.user)
+      return getUsers()
     },
     user: (_, args) => getUser(args.id)
   },
@@ -59,11 +70,11 @@ const resolvers = {
   Subscription: {
     onNewPost: {
       resolve(payload, args, ctx) {
-        return payload;
+        return payload
       },
       subscribe: () => pubsub.asyncIterator("ON_NEW_POST")
     }
   }
-};
+}
 
-export default resolvers;
+export default resolvers

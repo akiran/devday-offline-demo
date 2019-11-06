@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from "apollo-server-express"
 
 const typeDefs = gql`
   enum Role {
@@ -49,6 +49,13 @@ const typeDefs = gql`
     createComment(text: String!, post: Int!, author: Int!): Comment
   }
 
+  type Topic {
+    id: String!
+    name: String!
+    html: String
+    markdown: String
+  }
+
   type Query {
     ping: Boolean
     me: User
@@ -56,11 +63,13 @@ const typeDefs = gql`
     post(id: Int!): Post
     users: [User]
     user(id: Int!): User
+    topics: [Topic]
+    topic(id: String!): Topic
   }
 
   type Subscription {
     onNewPost: Post
   }
-`;
+`
 
-export default typeDefs;
+export default typeDefs
