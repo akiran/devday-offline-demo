@@ -2,18 +2,19 @@ import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { Link } from "react-router-dom"
 import { TOPICS_QUERY } from "../data/queries"
+import { ListGroup, ListGroupItem } from "reactstrap"
 
 export default function Sidebar() {
   const {
     data: { topics }
   } = useQuery(TOPICS_QUERY)
   return (
-    <div>
+    <ListGroup>
       {topics.map(topic => (
-        <div key={topic.id}>
+        <ListGroupItem key={topic.id}>
           <Link to={`/topic/${topic.id}`}>{topic.name}</Link>
-        </div>
+        </ListGroupItem>
       ))}
-    </div>
+    </ListGroup>
   )
 }

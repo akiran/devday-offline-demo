@@ -40,10 +40,10 @@ export default function Page(props) {
     <div>
       <Header />
       {props.children}
-      {isOnline ? "online" : "offline"}
+      {/* {isOnline ? "online" : "offline"}
       <Button onClick={() => client.writeData({ data: { isOnline: false } })}>
         Toggle
-      </Button>
+      </Button> */}
     </div>
   )
 }
