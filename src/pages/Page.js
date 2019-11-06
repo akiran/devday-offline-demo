@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import { useQuery, useApolloClient } from "@apollo/react-hooks"
-import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "./queries"
+import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "../data/queries"
 import { useLocation } from "react-router-dom"
 import { Button } from "reactstrap"
-import Header from "./Header"
+import Header from "../components/Header"
 
 export default function Page(props) {
   const client = useApolloClient()

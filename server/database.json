@@ -22,6 +22,11 @@
       "id": "123",
       "name": "React",
       "markdown": "# React Basics \n React is all about building reusable components and composing them"
+    },
+    {
+      "id": "456",
+      "name": "GraphQL",
+      "markdown": "# GraphQL Basics \n GraphQL is a technology to build modern APIs"
     }
   ],
   "posts": [

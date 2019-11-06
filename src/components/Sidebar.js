@@ -1,17 +1,17 @@
 import React from "react"
 import { useQuery } from "@apollo/react-hooks"
 import { Link } from "react-router-dom"
-import { POSTS_QUERY } from "./queries"
+import { TOPICS_QUERY } from "../data/queries"
 
 export default function Sidebar() {
   const {
-    data: { posts }
-  } = useQuery(POSTS_QUERY)
+    data: { topics }
+  } = useQuery(TOPICS_QUERY)
   return (
     <div>
-      {posts.map(post => (
-        <div key={post.id}>
-          <Link to={`/post/${post.id}`}>{post.title}</Link>
+      {topics.map(topic => (
+        <div key={topic.id}>
+          <Link to={`/topic/${topic.id}`}>{topic.name}</Link>
         </div>
       ))}
     </div>

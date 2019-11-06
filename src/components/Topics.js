@@ -2,7 +2,8 @@ import React from "react"
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
 import { Link } from "react-router-dom"
-import { POSTS_QUERY } from "./queries"
+import { TOPICS_QUERY } from "../data/queries"
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const newPostMutation = gql`
   mutation {
@@ -13,20 +14,22 @@ const newPostMutation = gql`
   }
 `
 
-export default function Posts() {
-  const { data } = useQuery(POSTS_QUERY)
+export default function Topics() {
+  const { data } = useQuery(TOPICS_QUERY)
   const [addPost, res] = useMutation(newPostMutation)
   return (
     <div>
-      {data.posts.map(post => (
-        <div key={post.id}>
-          <Link to={`/post/${post.id}`}>{post.title}</Link>
-        </div>
-      ))}
+      <ListGroup>
+        {data.topics.map(topic => (
+          <ListGroupItem key={topic.id}>
+            <Link to={`/topic/${topic.id}`}>{topic.name}</Link>
+          </ListGroupItem>
+        ))}
+      </ListGroup>
       <button
         onClick={() =>
           addPost({
-            refetchQueries: [{ query: POSTS_QUERY }]
+            refetchQueries: [{ query: TOPICS_QUERY }]
           })
         }
       >
