@@ -12,6 +12,7 @@ import {
 } from "react-router-dom"
 import { useQuery } from "@apollo/react-hooks"
 import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "./queries"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   const {
