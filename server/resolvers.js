@@ -1,19 +1,4 @@
-import {
-  getPosts,
-  getPost,
-  getUsers,
-  getUser,
-  getTopics,
-  getTopic,
-  getComments,
-  createPost,
-  publishPost,
-  createComment,
-  signup,
-  login,
-  logout
-} from "./connectors"
-import pubsub from "./pubsub"
+import { getUsers, getUser, getTopics, getTopic } from "./connectors"
 import showdown from "showdown"
 const htmlConverter = new showdown.Converter()
 
@@ -23,58 +8,24 @@ const resolvers = {
       return `${user.firstName} ${user.lastName}`
     }
   },
-  Post: {
-    author: (post, args, ctx) => {
-      return getUser(post.author)
-    },
-    comments: post => {
-      return getComments(post.id)
-    }
-  },
   Topic: {
     html: topic => {
       return htmlConverter.makeHtml(topic.markdown)
     }
   },
-  Comment: {
-    author: (post, args, ctx) => {
-      return getUser(post.author)
-    }
-  },
   Query: {
     ping: () => true,
-    me: (_, args, ctx) => {
-      if (!ctx.user) {
-        throw new Error("Not logged in")
-      }
-      return getUser(ctx.user.id)
-    },
-    posts: () => getPosts(),
-    post: (_, args) => getPost(args.id),
     topics: () => getTopics(),
     topic: (_, args) => getTopic(args.id),
     users: (_, args, ctx) => {
-      console.log("context", ctx.user)
       return getUsers()
     },
     user: (_, args) => getUser(args.id)
-  },
-  Mutation: {
-    createPost: (_, args) => createPost(args),
-    publishPost: (_, args, ctx) => publishPost(args, ctx),
-    createComment: (_, args) => createComment(args),
-    signup: (_, args, ctx) => signup(args, ctx),
-    login: (_, args, ctx) => login(args, ctx),
-    logout: (_, args, ctx) => logout(ctx)
-  },
-  Subscription: {
-    onNewPost: {
-      resolve(payload, args, ctx) {
-        return payload
-      },
-      subscribe: () => pubsub.asyncIterator("ON_NEW_POST")
-    }
   }
+  // Mutation: {
+  // createPost: (_, args) => createPost(args),
+  // publishPost: (_, args, ctx) => publishPost(args, ctx)
+  // }
 }
 
 export default resolvers
