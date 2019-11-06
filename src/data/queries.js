@@ -26,7 +26,23 @@ export const TOPIC_QUERY = gql`
     topic(id: $id) {
       id
       name
+    }
+  }
+`
+
+export const TOPIC_HTML_QUERY = gql`
+  query getTopic($id: String!) {
+    topic(id: $id) {
+      id
       html
+    }
+  }
+`
+
+export const TOPIC_MARKDOWN_QUERY = gql`
+  query getTopic($id: String!) {
+    topic(id: $id) {
+      id
       markdown
     }
   }
