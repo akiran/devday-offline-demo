@@ -1,37 +1,32 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "kiran@gmail.com",
-            "firstName": "Kiran",
-            "lastName": "Kumar",
-            "password": "$2b$10$80m1dmKF9.LIEVwH7N7Jmeyt1mxNcB6qYBWwfeTNhe3X0/Y4g8ZcK",
-            "role": "ADMIN"
-        },
-        {
-            "id": 2,
-            "email": "john@gmail.com",
-            "firstName": "John",
-            "lastName": "Doe",
-            "password": "$2b$10$80m1dmKF9.LIEVwH7N7Jmeyt1mxNcB6qYBWwfeTNhe3X0/Y4g8ZcK",
-            "role": "USER"
-        }
-    ],
-    "topics": [
-        {
-            "id": "123",
-            "name": "React",
-            "markdown": "# React"
-        },
-        {
-            "id": "456",
-            "name": "GraphQL",
-            "markdown": "# GraphQL Basics \n GraphQL is a technology to build modern APIs"
-        },
-        {
-            "id": "35eb34d9-7872-460a-b6b4-7b8133544e42",
-            "name": "hello",
-            "markdown": "### ok test it"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "kiran@gmail.com",
+      "firstName": "Kiran",
+      "lastName": "Kumar",
+      "password": "$2b$10$80m1dmKF9.LIEVwH7N7Jmeyt1mxNcB6qYBWwfeTNhe3X0/Y4g8ZcK",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "john@gmail.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "password": "$2b$10$80m1dmKF9.LIEVwH7N7Jmeyt1mxNcB6qYBWwfeTNhe3X0/Y4g8ZcK",
+      "role": "USER"
+    }
+  ],
+  "topics": [
+    {
+      "id": "8e4612b9-2732-414a-ae82-992a5f6705fc",
+      "name": "React",
+      "markdown": "# React"
+    },
+    {
+      "id": "ca810957-3132-41a6-905e-cd7cc67331cb ",
+      "name": "GraphQL",
+      "markdown": "# GraphQL Basics \n GraphQL is a technology to build modern APIs"
+    }
+  ]
 }
