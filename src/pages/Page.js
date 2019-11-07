@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { useQuery, useApolloClient } from "@apollo/react-hooks"
 import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "../data/queries"
 import { useLocation } from "react-router-dom"
-import { Button } from "reactstrap"
 import Header from "../components/Header"
 
 export default function Page(props) {
@@ -40,10 +39,6 @@ export default function Page(props) {
     <div>
       <Header />
       {props.children}
-      {/* {isOnline ? "online" : "offline"}
-      <Button onClick={() => client.writeData({ data: { isOnline: false } })}>
-        Toggle
-      </Button> */}
     </div>
   )
 }

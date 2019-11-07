@@ -21,10 +21,10 @@
     {
       "id": "8e4612b9-2732-414a-ae82-992a5f6705fc",
       "name": "React",
-      "markdown": "# React"
+      "markdown": "### React"
     },
     {
-      "id": "ca810957-3132-41a6-905e-cd7cc67331cb ",
+      "id": "ca810957-3132-41a6-905e-cd7cc67331cb",
       "name": "GraphQL",
       "markdown": "# GraphQL Basics \n GraphQL is a technology to build modern APIs"
     }

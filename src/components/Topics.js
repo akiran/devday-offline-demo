@@ -5,7 +5,14 @@ import { TOPICS_QUERY } from "../data/queries"
 import { ListGroup, ListGroupItem, Container } from "reactstrap"
 
 export default function Topics() {
-  const { data } = useQuery(TOPICS_QUERY)
+  const { loading, error, data } = useQuery(TOPICS_QUERY)
+  if (loading) {
+    return <div>Loading ...</div>
+  }
+
+  if (error) {
+    return <div>{error}</div>
+  }
   return (
     <Container>
       <ListGroup>
