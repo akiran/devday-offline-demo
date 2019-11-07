@@ -16,11 +16,9 @@ import TopicView from "./TopicView"
 import TopicEdit from "./TopicEdit"
 
 export default function Topic(props) {
-  const { loading, data } = useQuery(TOPIC_QUERY, {
+  const { data } = useQuery(TOPIC_QUERY, {
     variables: { id: props.id }
   })
-  console.log(loading, data)
-  return null
   const [activeTab, setActiveTab] = useState("view")
   return (
     <Row>
