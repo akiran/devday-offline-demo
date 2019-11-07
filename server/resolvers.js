@@ -1,4 +1,10 @@
-import { getUsers, getUser, getTopics, getTopic } from "./connectors"
+import {
+  getUsers,
+  getUser,
+  getTopics,
+  getTopic,
+  updateTopic
+} from "./connectors"
 import showdown from "showdown"
 const htmlConverter = new showdown.Converter()
 
@@ -21,11 +27,11 @@ const resolvers = {
       return getUsers()
     },
     user: (_, args) => getUser(args.id)
+  },
+  Mutation: {
+    // createPost: (_, args) => createPost(args),
+    updateTopic: (_, args) => updateTopic(args)
   }
-  // Mutation: {
-  // createPost: (_, args) => createPost(args),
-  // publishPost: (_, args, ctx) => publishPost(args, ctx)
-  // }
 }
 
 export default resolvers

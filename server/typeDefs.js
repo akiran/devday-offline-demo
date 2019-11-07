@@ -31,6 +31,10 @@ const typeDefs = gql`
     topics: [Topic]
     topic(id: String!): Topic
   }
+
+  type Mutation {
+    updateTopic(id: String!, markdown: String): Topic
+  }
 `
 
 export default typeDefs

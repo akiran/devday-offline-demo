@@ -14,3 +14,12 @@ export function getUser(id) {
   const users = getUsers()
   return users.find(user => user.id === id)
 }
+
+export function updateTopic({ id, markdown }) {
+  const topics = getTopics()
+  const newTopics = topics.map(topic =>
+    topic.id === id ? { ...topic, markdown } : topic
+  )
+  db.set("topics", newTopics)
+  return getTopic(id)
+}
