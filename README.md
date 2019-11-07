@@ -4,5 +4,5 @@
 npm install
 npm run server
 npm start
-open http://localhost:4000
+open http://localhost:3000
 ```
