@@ -2,12 +2,16 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import { ApolloProvider } from "@apollo/react-hooks"
-import client from "./data/apolloClient"
+import getClient from "./data/apolloClient"
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById("root")
-)
+async function renderApp() {
+  const client = await getClient()
+  ReactDOM.render(
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>,
+    document.getElementById("root")
+  )
+}
 
+renderApp()
