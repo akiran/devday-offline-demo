@@ -1,12 +1,12 @@
 import React from "react"
 import TopicsPage from "./pages/TopicsPage"
 import TopicPage from "./pages/TopicPage"
+import CreateTopic from "./components/CreateTopic"
 import {
   BrowserRouter as Router,
   Prompt,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom"
 import { useQuery } from "@apollo/react-hooks"
 import { VISITED_ROUTES_QUERY, ONLINE_QUERY } from "./data/queries"
@@ -39,6 +39,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/topic/:id" component={TopicPage}></Route>
+          <Route path="/create-topic" component={CreateTopic}></Route>
           <Route exact path="/" component={TopicsPage}></Route>
         </Switch>
       </div>

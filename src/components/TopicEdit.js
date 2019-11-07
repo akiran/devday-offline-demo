@@ -18,14 +18,14 @@ export default function TopicEdit(props) {
   const { data } = useQuery(TOPIC_MARKDOWN_QUERY, {
     variables: { id: props.id }
   })
-  const [updateTopic, res] = useMutation(updateTopicMutation)
+  const [updateTopic] = useMutation(updateTopicMutation)
 
   return (
     <Form>
       <FormGroup>
         <Row>
           <textarea
-            class="form-control"
+            className="form-control"
             rows="20"
             value={data.topic.markdown}
             onChange={e =>

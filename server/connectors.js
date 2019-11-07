@@ -23,3 +23,10 @@ export function updateTopic({ id, markdown }) {
   db.set("topics", newTopics)
   return getTopic(id)
 }
+
+export function createTopic({ id, name }) {
+  const topics = getTopics()
+  const newTopics = topics.concat({ id, name, markdown: "" })
+  db.set("topics", newTopics)
+  return getTopic(id)
+}

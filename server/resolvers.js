@@ -3,7 +3,8 @@ import {
   getUser,
   getTopics,
   getTopic,
-  updateTopic
+  updateTopic,
+  createTopic
 } from "./connectors"
 import showdown from "showdown"
 const htmlConverter = new showdown.Converter()
@@ -29,7 +30,7 @@ const resolvers = {
     user: (_, args) => getUser(args.id)
   },
   Mutation: {
-    // createPost: (_, args) => createPost(args),
+    createTopic: (_, args) => createTopic(args),
     updateTopic: (_, args) => updateTopic(args)
   }
 }

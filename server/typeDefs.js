@@ -33,6 +33,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    createTopic(id: String!, name: String!): Topic
     updateTopic(id: String!, markdown: String): Topic
   }
 `
