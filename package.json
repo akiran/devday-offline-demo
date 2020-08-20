@@ -22,7 +22,7 @@
     "apollo-server": "^2.4.8",
     "apollo-server-express": "^2.4.8",
     "babel-eslint": "^10.0.3",
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "bootstrap": "^4.3.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^7.0.0",
