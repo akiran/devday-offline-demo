@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import gql from "graphql-tag"
 import { useMutation } from "@apollo/react-hooks"
-import uuid from "uuid"
+import { v4 as uuidv4 } from 'uuid';
 import { Button, Input, Container } from "reactstrap"
 import { TOPICS_QUERY } from "../data/queries"
 import Header from "./Header"
@@ -30,7 +30,7 @@ export default function CreateTopic(props) {
         />
         <Button
           onClick={() => {
-            const id = uuid.v4()
+            const id = uuidv4()
             createTopic({
               variables: { id, name },
               refetchQueries: [{ query: TOPICS_QUERY }]
